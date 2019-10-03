@@ -1,2 +1,2 @@
 # data-structures
-It contains implementation of various data structures in c. It consists of header, implementation and test files.
+It contains implementation of various data structures in c. Each data structure is implemented using three files: a header file, an implementation file and a test file.
