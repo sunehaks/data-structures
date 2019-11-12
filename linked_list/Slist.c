@@ -232,3 +232,51 @@ slist* unique(slist* list){
 	printf("%d\n", slist_length(list));
 	return ptr;
 }
+
+Slist* union_twolist(Slist *union_list,Slist *list1,Slist *list2)
+{
+    assert(list1!=NULL);
+    assert(list2!=NULL);
+
+    Node *temp1,*temp2;
+    temp1=list1->head;
+    temp2=list2->head;
+
+    while(temp1!=NULL)
+    {
+	if(!(slist_lookup(union_list, temp1->data)))
+        {
+            union_list = slist_add_tail(union_list,temp1->data);
+        }
+        //union_list = slist_add_tail(union_list,temp1->data);
+        temp1=temp1->next;
+    }
+    while(temp2!=NULL)
+    {
+        if(!(slist_lookup(list1, temp2->data)))
+        {
+            union_list = slist_add_tail(union_list,temp2->data);
+        }
+        temp2=temp2->next;
+    }
+    return union_list;
+}
+
+Slist* intersection_twolist(Slist *intersection_list,Slist *list1,Slist *list2)
+{
+    assert(list1!=NULL);
+    assert(list2!=NULL);
+
+    Node *temp1,*temp2;
+    temp1=list1->head;
+    temp2=list2->head;
+    while(temp1!=NULL)
+    {
+        if(slist_lookup(list2, temp1->data))
+        {
+            intersection_list = slist_add_tail(intersection_list,temp1->data);
+        }
+        temp1=temp1->next;
+    }
+return intersection_list;
+}
